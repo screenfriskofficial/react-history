@@ -14,10 +14,10 @@ import person7 from '../assets/persons/person7.jpeg';
 import person8 from '../assets/persons/person8.jpg';
 import person9 from '../assets/persons/person9.jpg';
 import person10 from '../assets/persons/person10.jpg';
-import person11 from '../assets/persons/person11.jpg';
 import Footer from '../Footer/';
+import { Analytics } from '@vercel/analytics/react';
 
-function Home() {
+function Home({ Component, pageProps }) {
   const [changeBackground, setChangeBackground] = React.useState(false);
   const handleChange = () => {
     setChangeBackground(!changeBackground);
@@ -106,6 +106,8 @@ function Home() {
   ];
   return (
     <div className="App">
+      <Component {...pageProps} />
+      <Analytics />
       <Header />
       <Banner
         changeBackground={changeBackground}
