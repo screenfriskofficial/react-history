@@ -22,13 +22,7 @@ function Home() {
   const handleChange = () => {
     setChangeBackground(!changeBackground);
   };
-  const [step, setStep] = React.useState(0);
-  const handleChangeContent = () => {
-    setStep(step + 1);
-  };
-  const handleChangeContentMinus = () => {
-    setStep(step - 1);
-  };
+
   const contentArray1 = [
     {
       image: person1,
@@ -128,9 +122,6 @@ function Home() {
 
       <Slider
         contentArray1={contentArray1}
-        plus={handleChangeContent}
-        minus={handleChangeContentMinus}
-        step={step}
         changeBackground={changeBackground}
         contentArray2={contentArray2}
       />

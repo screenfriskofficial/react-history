@@ -1,9 +1,16 @@
 import React from 'react';
 
-function XIX({ contentArray1, contentArray2, plus, minus, step, changeBackground }) {
+function Slider({ contentArray1, contentArray2, changeBackground }) {
+  const [step, setStep] = React.useState(0);
   const content = contentArray1[step];
   const content2 = contentArray2[step];
 
+  const handleChangeContent = () => {
+    setStep(step + 1);
+  };
+  const handleChangeContentMinus = () => {
+    setStep(step - 1);
+  };
   return (
     <>
       {changeBackground ? (
@@ -14,12 +21,12 @@ function XIX({ contentArray1, contentArray2, plus, minus, step, changeBackground
             {step >= contentArray2.length - 1 ? (
               ''
             ) : (
-              <button onClick={plus} className="floating-button">
+              <button onClick={handleChangeContent} className="floating-button">
                 Вперед
               </button>
             )}
             {step >= (contentArray2.length > 1) ? (
-              <button onClick={minus} className="floating-button">
+              <button onClick={handleChangeContentMinus} className="floating-button">
                 Назад
               </button>
             ) : (
@@ -41,12 +48,12 @@ function XIX({ contentArray1, contentArray2, plus, minus, step, changeBackground
             {step >= contentArray1.length - 1 ? (
               ''
             ) : (
-              <button onClick={plus} className="floating-button">
+              <button onClick={handleChangeContent} className="floating-button">
                 Вперед
               </button>
             )}
-            {step >= (contentArray1.length > 1) ? (
-              <button onClick={minus} className="floating-button">
+            {step >= (contentArray1.length >= 1) ? (
+              <button onClick={handleChangeContentMinus} className="floating-button">
                 Назад
               </button>
             ) : (
@@ -64,4 +71,4 @@ function XIX({ contentArray1, contentArray2, plus, minus, step, changeBackground
     </>
   );
 }
-export default XIX;
+export default Slider;

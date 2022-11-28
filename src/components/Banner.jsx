@@ -8,9 +8,9 @@ function Banner({ changeBackground, handleChange }) {
         </h1>
         <div className="header-button-container">
           {changeBackground ? (
-            <button text="XX век" hover-text="XIX век" onClick={handleChange}></button>
+            <button onClick={handleChange}>XX век</button>
           ) : (
-            <button text="XIX век" hover-text="XX век" onClick={handleChange}></button>
+            <button onClick={handleChange}>XIX век</button>
           )}
         </div>
       </div>
